@@ -29,7 +29,7 @@ def make_request(date: date) -> (list, list):
     r = requests.get(url)
 
     if r.status_code == 200:
-        log(f"Success.")
+        log("Success.")
         timestamps, values = [], []
 
         for i in json.loads(r.text):
@@ -53,7 +53,7 @@ def main():
     log("Submitting data to VM.")
     x = requests.post(VM_URL, json=vm_json_block)
     if x.status_code == 204:
-        log(f"Data successfully submitted to VM.")
+        log("Data successfully submitted to VM.")
     else:
         log(f"Error submitting data to VM. Response code {x.status_code}")
 
